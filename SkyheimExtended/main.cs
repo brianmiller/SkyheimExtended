@@ -7,7 +7,7 @@ using skyheim;
 
 namespace SkyheimExtended
 {
-    [BepInPlugin("posixone.SkyheimExtended", "SkyheimExtended", "1.0")]
+    [BepInPlugin("posixone.SkyheimExtended", "SkyheimExtended", "1.0.0")]
     [BepInProcess("valheim.exe")]
     public class SkyheimExtended : BaseUnityPlugin
     {
