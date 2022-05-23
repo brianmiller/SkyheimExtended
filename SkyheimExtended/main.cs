@@ -1,13 +1,14 @@
-﻿using BepInEx;
+using BepInEx;
 using HarmonyLib;
 using BepInEx.Configuration;
 using UnityEngine;
 using skyheim;
+//using System;
 
 
 namespace SkyheimExtended
 {
-    [BepInPlugin("posixone.SkyheimExtended", "SkyheimExtended", "1.0.0")]
+    [BepInPlugin("posixone.SkyheimExtended", "SkyheimExtended", "1.0.2")]
     [BepInProcess("valheim.exe")]
     public class SkyheimExtended : BaseUnityPlugin
     {
@@ -27,7 +28,7 @@ namespace SkyheimExtended
             isDebug = Config.Bind(new ConfigDefinition("Global", "isDebug"), false, new ConfigDescription("Set this to true to enable and false to disable debug mode. This spams the console and will impact performance."));
             scaleWithLevel = Config.Bind(new ConfigDefinition("Scaling", "scaleWithLevel"), true, new ConfigDescription("Set this to true to automatically scale maximum mana and mana regen rates with player level. See scale factors below for formulas."));
             manaScaleFactor = Config.Bind(new ConfigDefinition("Scaling", "manaScaleFactor"), 1.25, new ConfigDescription("Max Mana scale factor--formula: playerLevel * manaScaleFactor + 100. scaleWithLevel must be set to true."));
-            regenScaleFactor = Config.Bind(new ConfigDefinition("Scaling", "regenScaleFactor"), 0.10, new ConfigDescription("Mana Regen scale factor--formula: playerLevel * regenScaleFactor + 3. scaleWithLevel must be set to true."));
+            regenScaleFactor = Config.Bind(new ConfigDefinition("Scaling", "regenScaleFactor"), 0.05, new ConfigDescription("Mana Regen scale factor--formula: playerLevel * regenScaleFactor + 3. scaleWithLevel must be set to true."));
             manaRegen = Config.Bind(new ConfigDefinition("Static", "manaRegen"), 7f, new ConfigDescription("Statically set Mana Regen rate. Skyheim's default is 3. scaleWithLevel must be set to false."));
             maxMana = Config.Bind(new ConfigDefinition("Static", "maxMana"), 125f, new ConfigDescription("Statically set Max Mana. Skyheim's default is 100. scaleWithLevel must be set to false."));
 
@@ -50,7 +51,9 @@ namespace SkyheimExtended
                 {
                     ItemDrop.ItemData currentWeapon = Player.m_localPlayer.GetCurrentWeapon();
 
-                    float playerLevel = Player.m_localPlayer.GetLevel();
+                    //float playerLevel = Player.m_localPlayer.GetLevel();
+                    //use run skill for now
+                    float playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType.Run)) * 100f + 0.000001f;
 
                     float regenScaled = (float)(playerLevel * regenScaleFactor.Value + 3);
                     float manaScaled = (float)(playerLevel * manaScaleFactor.Value + 100);
