@@ -23,4 +23,7 @@ If scaling is disabled (scaleWithLevel = false), then the "Static" values are us
  Note: Skyheim's default values are:
   * Mana Regen (manaRegen): 3
   * Max Mana (maxMana): 100
+  
+<br><br>
+ Note: We can't figure out how to read Skyheim skill values yet. So we're using the Run skill for scaling. 
 <br><br>
