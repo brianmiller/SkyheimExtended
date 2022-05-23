@@ -13,11 +13,15 @@ namespace SkyheimExtended
     {
         private readonly Harmony harmony = new Harmony("posixone.SkyheimExtended");
 
+        public static ConfigEntry<bool> scaleWithLevel;
+        public static ConfigEntry<float> scale;
         public static ConfigEntry<float> manaRegen;
         public static ConfigEntry<float> maxMana;
 
         void Awake()
         {
+            scaleWithLevel = Config.Bind("Global", "scaleWithLevel", true);
+            scale = Config.Bind("Global", "scale", 2f);
             manaRegen = Config.Bind("Global", "manaRegen", 3f);
             maxMana = Config.Bind("Global", "maxMana", 100f);
 
@@ -33,7 +37,7 @@ namespace SkyheimExtended
 
             //public static readonly ItemDrop.ItemData itemData = Player.m_localPlayer.GetCurrentWeapon();
 
-            static void Postfix(ref float ____manaRegen, ref float ____maxMana)
+            static void Postfix(ref float ____manaRegen, ref float ____maxMana, bool scaleWithLevel)
             {
                 //ItemDrop.ItemData currentWeapon = Player.m_localPlayer.GetCurrentWeapon();
 
@@ -51,6 +55,12 @@ namespace SkyheimExtended
 
                     //float frostbolt_skillLevel = ((Player.m_localPlayer.GetSkillFactor((Skills.SkillType.Swim)) * 100f) + 0.000001f);
                     float playerLevel = Player.m_localPlayer.GetLevel();
+                    float scaleFactor = 2;
+
+                    //scaleFactor = scaleFactor
+
+                    float regenScaled = playerLevel * scaleFactor;
+                    float manaScaled = playerLevel * scaleFactor;
 
 
                     if (currentWeapon != null && (Object)(object)currentWeapon.m_dropPrefab != (Object)null)
@@ -63,8 +73,14 @@ namespace SkyheimExtended
                         //if the Skyheim Frostbolt Rune is equipped
                         if (equipped == "rune_frostbolt")
                         {
-                            ____manaRegen = manaRegen.Value;
-                            ____maxMana = maxMana.Value;
+                            if (scaleWithLevel == true)
+                            {
+                                ____manaRegen = regenScaled;
+                                ____maxMana = manaScaled;
+                            }
+                            //____manaRegen = manaRegen.Value;
+                            //____maxMana = maxMana.Value;
+                            
                             Debug.Log($"Skill Level: {playerLevel}");
                         }
                     }

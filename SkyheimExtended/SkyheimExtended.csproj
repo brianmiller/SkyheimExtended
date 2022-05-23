@@ -32,16 +32,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\Phump\Phump\Libs\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\PhValheim\Hollandale\Hollandale\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="assembly_valheim">
-      <HintPath>..\..\Phump\Phump\Libs\assembly_valheim.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\..\Phump\Phump\Libs\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\PhValheim\Hollandale\Hollandale\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="skyheim">
-      <HintPath>..\..\..\..\AppData\Roaming\PhValheim\Hollandale\Hollandale\BepInEx\plugins\makail-Skyheim\skyheim.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\PhValheim\Hollandale\Hollandale\BepInEx\plugins\makail-Skyheim\skyheim.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,10 +52,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\Phump\Phump\Libs\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\PhValheim\Hollandale\Hollandale\unstripped_corlib\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\Phump\Phump\Libs\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Roaming\PhValheim\Hollandale\Hollandale\unstripped_corlib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
