@@ -54,6 +54,9 @@ namespace SkyheimExtended
                     //float playerLevel = Player.m_localPlayer.GetLevel();
                     //use run skill for now
                     float playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType.Run)) * 100f + 0.000001f;
+                    
+                    //Get natureskill level
+                    float natureSkillLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.NatureMagic) * 100f + 0.000001f;
 
                     float regenScaled = (float)(playerLevel * regenScaleFactor.Value + 3);
                     float manaScaled = (float)(playerLevel * manaScaleFactor.Value + 100);
