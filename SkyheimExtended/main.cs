@@ -22,7 +22,7 @@ namespace SkyheimExtended
         public static ConfigEntry<float> maxMana;
 
         void Awake()
-        {
+        { 
             skyheimExtendedEnabled = Config.Bind(new ConfigDefinition("Global", "skyheimExtendedEnabled"), true, new ConfigDescription("Set this to true to enable and false to disable this mod."));
             isDebug = Config.Bind(new ConfigDefinition("Global", "isDebug"), false, new ConfigDescription("Set this to true to enable and false to disable debug mode. This spams the console and will impact performance."));
             scaleWithLevel = Config.Bind(new ConfigDefinition("Scaling", "scaleWithLevel"), true, new ConfigDescription("Set this to true to automatically scale maximum mana and mana regen rates with player level. See scale factors below for formulas."));
@@ -48,22 +48,56 @@ namespace SkyheimExtended
 
             static void Postfix(ref float ____manaRegen, ref float ____maxMana)
             {
-                //Only run code when weapon is equipped
+                //only run code when weapon is equipped
                 if ((Object)(object)Player.m_localPlayer != (Object)null)
                 {
-       
+                    //currently equipped weapon      
                     ItemDrop.ItemData currentWeapon = Player.m_localPlayer.GetCurrentWeapon();
+                                       
+                    
 
-                    //use run skill for now
-                    float playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType.Run)) * 100f + 0.000001f;
+                    //float natureMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
+                    //float holyMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
+                    //float fireMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
+                    //float frostMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
 
-                    float natureMagicLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
-                    float holyMagicLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
-                    float fireMagicLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
-                    float frostMagicLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
+                    float playerLevel = (float)1;
 
+                    //frost magic
+                    if (currentWeapon.m_dropPrefab.name == "rune_frostbolt")
+                    {
+                        float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
+                        //float playerLevel = (float)frostMagicLevel;
+                    } 
+                    //fire magic
+                    //else if (currentWeapon.m_dropPrefab.name == "rune_firebolt")
+                    //{
+                        //float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
+                    //    float playerLevel = fireMagicLevel;
+                    //}
+                    //holy magic
+                    //else if (currentWeapon.m_dropPrefab.name == "rune_")
+                    //{
+                        //float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
+                    //    float playerLevel = holyMagicLevel;
+                    //}
+                    //nature magic
+                    //else if (currentWeapon.m_dropPrefab.name == "rune_")
+                    //{
+                        //float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
+                    //    float playerLevel = natureMagicLevel;
+                    //}
+                    //else
+                    //{ 
+                    //    float playerLevel = (float)1;
+                    //}
+                    
+                    //float playerLevel = (float)frostMagicLevel;
+                    //float playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType.Run)) * 100f + 0.000001f;
+                    //scale it
                     float regenScaled = (float)(playerLevel * regenScaleFactor.Value + 3);
                     float manaScaled = (float)(playerLevel * manaScaleFactor.Value + 100);
+
 
                     if (currentWeapon != null && (Object)(object)currentWeapon.m_dropPrefab != (Object)null)
                     {
@@ -91,10 +125,7 @@ namespace SkyheimExtended
                             Debug.Log($"Current Weapon: {currentWeapon.m_dropPrefab.name}");
                             Debug.Log($"Mana Level: {____maxMana}");
                             Debug.Log($"Regen Factor: {____manaRegen}");
-                            Debug.Log($"Nature Magic Level: {natureMagicLevel}");
-                            Debug.Log($"Holy Magic Level: {holyMagicLevel}");
-                            Debug.Log($"Fire Magic Level: {fireMagicLevel}");
-                            Debug.Log($"Frost Magic Level: {frostMagicLevel}");
+                            //Debug.Log($"Skill Level: {playerLevel}");
                         }
                     }
                 }
