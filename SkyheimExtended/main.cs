@@ -21,6 +21,7 @@ namespace SkyheimExtended
         public static ConfigEntry<float> manaRegen;
         public static ConfigEntry<float> maxMana;
 
+
         void Awake()
         { 
             skyheimExtendedEnabled = Config.Bind(new ConfigDefinition("Global", "skyheimExtendedEnabled"), true, new ConfigDescription("Set this to true to enable and false to disable this mod."));
@@ -54,46 +55,33 @@ namespace SkyheimExtended
                     //currently equipped weapon      
                     ItemDrop.ItemData currentWeapon = Player.m_localPlayer.GetCurrentWeapon();
                                        
-                    
-
-                    //float natureMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
-                    //float holyMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
-                    //float fireMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
-                    //float frostMagicLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
-
-                    float playerLevel = (float)1;
+                    float playerLevel = 1;
 
                     //frost magic
                     if (currentWeapon.m_dropPrefab.name == "rune_frostbolt")
                     {
-                        float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
-                        //float playerLevel = (float)frostMagicLevel;
+                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
                     } 
                     //fire magic
-                    //else if (currentWeapon.m_dropPrefab.name == "rune_firebolt")
-                    //{
-                        //float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
-                    //    float playerLevel = fireMagicLevel;
-                    //}
+                    else if (currentWeapon.m_dropPrefab.name == "rune_firebolt")
+                    {
+                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
+                    }
                     //holy magic
-                    //else if (currentWeapon.m_dropPrefab.name == "rune_")
-                    //{
-                        //float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
-                    //    float playerLevel = holyMagicLevel;
-                    //}
+                    else if (currentWeapon.m_dropPrefab.name == "rune_")
+                    {
+                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
+                    }
                     //nature magic
-                    //else if (currentWeapon.m_dropPrefab.name == "rune_")
-                    //{
-                        //float playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
-                    //    float playerLevel = natureMagicLevel;
-                    //}
-                    //else
-                    //{ 
-                    //    float playerLevel = (float)1;
-                    //}
+                    else if (currentWeapon.m_dropPrefab.name == "rune_")
+                    {
+                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
+                    }
+
                     
-                    //float playerLevel = (float)frostMagicLevel;
                     //float playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType.Run)) * 100f + 0.000001f;
+
+
                     //scale it
                     float regenScaled = (float)(playerLevel * regenScaleFactor.Value + 3);
                     float manaScaled = (float)(playerLevel * manaScaleFactor.Value + 100);
@@ -125,7 +113,7 @@ namespace SkyheimExtended
                             Debug.Log($"Current Weapon: {currentWeapon.m_dropPrefab.name}");
                             Debug.Log($"Mana Level: {____maxMana}");
                             Debug.Log($"Regen Factor: {____manaRegen}");
-                            //Debug.Log($"Skill Level: {playerLevel}");
+                            Debug.Log($"Skill Level: {playerLevel}");
                         }
                     }
                 }
