@@ -58,24 +58,28 @@ namespace SkyheimExtended
                     float playerLevel = 1;
 
                     //frost magic
-                    if (currentWeapon.m_dropPrefab.name == "rune_frostbolt")
-                    {
-                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203);
+                    if (currentWeapon.m_dropPrefab.name == "rune_frostbolt" || currentWeapon.m_dropPrefab.name == "rune_glacial_spike")
+                    {                       
+                        playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.FrostMagic) * 100f + 0.000001f;
+                        //playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)203) * 100f + 0.000001f;
                     } 
                     //fire magic
-                    else if (currentWeapon.m_dropPrefab.name == "rune_firebolt")
+                    else if (currentWeapon.m_dropPrefab.name == "rune_firebolt" || currentWeapon.m_dropPrefab.name == "rune_immolate" || currentWeapon.m_dropPrefab.name == "rune_warmth")
                     {
-                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202);
+                        playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.FireMagic) * 100f + 0.000001f;
+                        //playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)202) * 100f + 0.000001f;
                     }
                     //holy magic
-                    else if (currentWeapon.m_dropPrefab.name == "rune_")
+                    else if (currentWeapon.m_dropPrefab.name == "rune_light")
                     {
-                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201);
+                        playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.HolyMagic) * 100f + 0.000001f;
+                        //playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)201) * 100f + 0.000001f;
                     }
                     //nature magic
-                    else if (currentWeapon.m_dropPrefab.name == "rune_")
+                    else if (currentWeapon.m_dropPrefab.name == "rune_heal" || currentWeapon.m_dropPrefab.name == "rune_chain_lighting" )
                     {
-                        playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200);
+                        playerLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.NatureMagic) * 100f + 0.000001f;
+                        //playerLevel = Player.m_localPlayer.GetSkillFactor((Skills.SkillType)200) * 100f + 0.000001f;
                     }
 
                     
