@@ -12,7 +12,6 @@ namespace SkyheimExtended.Mana
         public static double regenScaleFactor = 1;
         public static double manaScaleFactor = 1;
         public static string skillFlavor;
-        public static bool isRune;
 
         public static void Postfix(ref float ____manaRegen, ref float ____maxMana)
         {
