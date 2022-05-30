@@ -11,6 +11,8 @@ namespace SkyheimExtended.Mana
         public static float manaScaled = 1;
         public static double regenScaleFactor = 1;
         public static double manaScaleFactor = 1;
+        public static string skillFlavor;
+        public static bool isRune;
 
         public static void Postfix(ref float ____manaRegen, ref float ____maxMana)
         {
@@ -28,6 +30,7 @@ namespace SkyheimExtended.Mana
                 //frost magic
                 if (currentWeapon.m_dropPrefab.name == "rune_frostbolt" || currentWeapon.m_dropPrefab.name == "rune_glacial_spike")
                 {
+                    skillFlavor = "FrostMagic";
                     skillLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.FrostMagic) * 100f + 0.000001f;
                     regenScaleFactor = SkyheimExtended.frostRegenScaleFactor.Value;
                     manaScaleFactor = SkyheimExtended.frostManaScaleFactor.Value;
@@ -35,6 +38,7 @@ namespace SkyheimExtended.Mana
                 //fire magic
                 else if (currentWeapon.m_dropPrefab.name == "rune_firebolt" || currentWeapon.m_dropPrefab.name == "rune_immolate" || currentWeapon.m_dropPrefab.name == "rune_warmth")
                 {
+                    skillFlavor = "FireMagic";
                     skillLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.FireMagic) * 100f + 0.000001f;
                     regenScaleFactor = SkyheimExtended.fireRegenScaleFactor.Value;
                     manaScaleFactor = SkyheimExtended.fireManaScaleFactor.Value;
@@ -42,6 +46,7 @@ namespace SkyheimExtended.Mana
                 //holy magic
                 else if (currentWeapon.m_dropPrefab.name == "rune_light")
                 {
+                    skillFlavor = "HolyMagic";
                     skillLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.HolyMagic) * 100f + 0.000001f;
                     regenScaleFactor = SkyheimExtended.holyRegenScaleFactor.Value;
                     manaScaleFactor = SkyheimExtended.holyManaScaleFactor.Value;
@@ -49,6 +54,7 @@ namespace SkyheimExtended.Mana
                 //nature magic
                 else if (currentWeapon.m_dropPrefab.name == "rune_heal" || currentWeapon.m_dropPrefab.name == "rune_chain_lighting")
                 {
+                    skillFlavor = "NatureMagic";
                     skillLevel = (float)Player.m_localPlayer.GetSkillFactor((Skills.SkillType)SkyheimItemData.ESkillType.NatureMagic) * 100f + 0.000001f;
                     regenScaleFactor = SkyheimExtended.natureRegenScaleFactor.Value;
                     manaScaleFactor = SkyheimExtended.natureManaScaleFactor.Value;
