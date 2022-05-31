@@ -5,7 +5,6 @@ SkyheimExtended simply intercepts the 'skyheim.SkheimMana.UpdateMana' method and
 Features:
   * Statically assign Mana Regen and Max Mana values (instead of scaling)
   * Dynamically scale Mana Regen and Max Mana values with the player's Skyheim magic skill level. Configurable scaling factors are:
-    *  Regen and Max scale factors can be set independently
     *  Regen and Max scale factors can be configured by skill. E.g.:
       *  frostManaScaleFactor
       *  frostRegenScaleFactor
@@ -15,7 +14,6 @@ Features:
       *  natureRegenScaleFactor
       *  holyManaScaleFactor
       *  holyRegenScaleFactor
-
 
 <br><br>
 
