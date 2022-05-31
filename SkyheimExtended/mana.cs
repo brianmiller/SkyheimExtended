@@ -7,17 +7,21 @@ namespace SkyheimExtended.Mana
     public class SkyheimMana_Patch
     {
         public static float skillLevel = 1;
+
         public static float regenScaled = 1;
         public static float manaScaled = 1;
         public static double regenScaleFactor = 1;
         public static double manaScaleFactor = 1;
         public static string skillFlavor;
+        public static float skyheimExtended_maxMana;
+        public static float skyheimExtended_manaRegen;
+        //public static float skyheimExtended_manaDrain;
 
         public static void Postfix(ref float ____manaRegen, ref float ____maxMana)
         {
             //only run code when a player is active
             if ((Object)(object)Player.m_localPlayer != (Object)null)
-            {
+            {   
                 //only run code when a weapon is equipped. If no weapon is equipped, do not run.
                 if (!Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab)
                 {
@@ -83,6 +87,9 @@ namespace SkyheimExtended.Mana
                         ____manaRegen = 3f;
                         ____maxMana = 100f;
                     }
+
+                    skyheimExtended_manaRegen = ____manaRegen;
+                    skyheimExtended_maxMana = ____maxMana;
                 }
             }
         }

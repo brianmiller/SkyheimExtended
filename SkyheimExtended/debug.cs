@@ -35,11 +35,13 @@ namespace SkyheimExtended.Debugger
                     Debug.Log("");
                     Debug.Log($"[SkyheimExtended] Current weapon: {Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab.name}");
                     Debug.Log($"[SkyheimExtended] Current weapon is a rune: {Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab.name.StartsWith("rune_")}");
-                    Debug.Log($"[SkyheimExtended] Skill: {SkyheimMana_Patch.skillFlavor}");
+                    Debug.Log("[SkyheimExtended]");
                     Debug.Log($"[SkyheimExtended] Scale with skill: {SkyheimExtended.scaleWithLevel.Value}");
+                    Debug.Log($"[SkyheimExtended] Skill: {SkyheimMana_Patch.skillFlavor}");                    
                     Debug.Log($"[SkyheimExtended] Skill level: {SkyheimMana_Patch.skillLevel}");
-                    Debug.Log($"[SkyheimExtended] Mana level: {SkyheimMana_Patch.manaScaled}");
-                    Debug.Log($"[SkyheimExtended] Regen factor: {SkyheimMana_Patch.regenScaled}");
+                    Debug.Log("[SkyheimExtended]");
+                    Debug.Log($"[SkyheimExtended] Max mana: {SkyheimMana_Patch.skyheimExtended_maxMana}");
+                    Debug.Log($"[SkyheimExtended] Mana regen factor: {SkyheimMana_Patch.skyheimExtended_manaRegen}");
                     Debug.Log("");
                 }
             }
