@@ -14,8 +14,7 @@ Features:
       *  natureRegenScaleFactor
       *  holyManaScaleFactor
       *  holyRegenScaleFactor
-
-<br><br>
+<br>
 
 By default, SkyheimExtended is in scaling mode. Default scaling factors are set to:
   * Mana Regen (regenScaleFactor): 1.35
