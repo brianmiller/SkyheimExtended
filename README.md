@@ -3,16 +3,26 @@
 SkyheimExtended simply intercepts the 'skyheim.SkheimMana.UpdateMana' method and injects custom code replacing Skyheim's original code.
 
 Features:
-  * Mana Regen and Max Mana scales with player level with configurable scaling factors.
-  * Statically assign Mana regen and Max Mana values (instead of scaling)
-    *  Regen and Max scale factors can be set independently.
+  * Mana Regen and Max Mana values scale with the player's Skyheim magic skill level with configurable scaling factors.
+  * Statically assign Mana Regen and Max Mana values (instead of scaling)
+    *  Regen and Max scale factors can be set independently
+    *  Regen and Max scale factors can be configured by skill. E.g.:
+      *  frostManaScaleFactor
+      *  frostRegenScaleFactor
+      *  fireManaScaleFactor
+      *  fireRegenScaleFactor
+      *  natureManaScaleFactor
+      *  natureRegenScaleFactor
+      *  holyManaScaleFactor
+      *  holyRegenScaleFactor
+
 <br><br>
 
 By default, SkyheimExtended is in scaling mode. Default scaling factors are set to:
-  * Mana Regen (regenScaleFactor): 1.25
-    * Formula is: playerLevel * regenScaleFactor + 3
-  * Max Mana (manaScaleFactor): 0.1
-    * Formula is: playerLevel * manaScaleFactor + 100
+  * Mana Regen (regenScaleFactor): 1.35
+    * Formula is: skillLevel * <skillType>RegenScaleFactor + 3
+  * Max Mana (manaScaleFactor): 0.05
+    * Formula is: skillLevel * <skillType>ManaScaleFactor + 100
 <br><br>
 
 If scaling is disabled (scaleWithLevel = false), then the "Static" values are used. SkyheimExtended sets these values to the following by default:
@@ -23,7 +33,4 @@ If scaling is disabled (scaleWithLevel = false), then the "Static" values are us
  Note: Skyheim's default values are:
   * Mana Regen (manaRegen): 3
   * Max Mana (maxMana): 100
-  
-<br><br>
- Note: We can't figure out how to read Skyheim skill values yet. So we're using the Run skill for scaling. 
-<br><br>
+
