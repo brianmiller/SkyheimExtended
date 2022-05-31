@@ -1,6 +1,6 @@
 # SkyheimExtended 
 
-SkyheimExtended simply intercepts the 'skyheim.SkheimMana.UpdateMana' method and injects custom code replacing Skyheim's original code.
+SkyheimExtended intercepts interesting code from Skyheim and injects custom code replacing Skyheim's original code.
 
 Features:
   * Statically assign Mana Regen and Max Mana values (instead of scaling)
