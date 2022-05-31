@@ -33,9 +33,9 @@ If scaling is disabled (scaleWithLevel = false), then the "Static" values are us
   * Max Mana (maxMana): 100
 
 
-#### Dynamic Scaling
+### Dynamic Scaling
  ![debugDynamicValues](https://user-images.githubusercontent.com/342276/171280214-b38ca0cd-0352-4794-8730-8b8a1e059d67.png)
  
-#### Static Assignment
+### Static Assignment
  ![debugStaticValues](https://user-images.githubusercontent.com/342276/171280225-51b75330-6537-44d5-af74-ee3fcf8d01cf.png)
 
