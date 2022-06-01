@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using JetBrains.Annotations;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace SkyheimExtended.Mana
@@ -7,7 +9,6 @@ namespace SkyheimExtended.Mana
     public class SkyheimMana_Patch
     {
         public static float skillLevel = 1;
-
         public static float regenScaled = 1;
         public static float manaScaled = 1;
         public static double regenScaleFactor = 1;
@@ -15,9 +16,11 @@ namespace SkyheimExtended.Mana
         public static string skillFlavor;
         public static float skyheimExtended_maxMana;
         public static float skyheimExtended_manaRegen;
-        //public static float skyheimExtended_manaDrain;
+        public static float skyheimExtended_currentMana;
+        public static float skyheimExtended_currentMana_test;
+        public static float skyheimExtended_manaDrain;
 
-        public static void Postfix(ref float ____manaRegen, ref float ____maxMana)
+        public static void Postfix(ref float ____manaRegen, ref float ____maxMana, ref float ____currentMana)
         {
             //only run code when a player is active
             if ((Object)(object)Player.m_localPlayer != (Object)null)
@@ -67,6 +70,7 @@ namespace SkyheimExtended.Mana
                 regenScaled = (float)(skillLevel * regenScaleFactor + 3);
                 manaScaled = (float)(skillLevel * manaScaleFactor + 100);
 
+
                 //if a weapon is equipped, do it
                 if (currentWeapon != null && (Object)(object)currentWeapon.m_dropPrefab != (Object)null)
                 {
@@ -88,8 +92,18 @@ namespace SkyheimExtended.Mana
                         ____maxMana = 100f;
                     }
 
+
+                    //void ManaDrain(SkyheimItemData itemData)
+                    //{
+                    //skyheimExtended_manaDrain = (float)SkyheimItemData.FindObjectOfType<ManaUsed>();
+                    //}
+
+
+
                     skyheimExtended_manaRegen = ____manaRegen;
                     skyheimExtended_maxMana = ____maxMana;
+                    skyheimExtended_currentMana = ____currentMana;
+
                 }
             }
         }

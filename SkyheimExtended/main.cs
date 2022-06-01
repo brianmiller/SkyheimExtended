@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SkyheimExtended
 {
-    [BepInPlugin("posixone.SkyheimExtended", "SkyheimExtended", "1.0.3")]
+    [BepInPlugin("posixone.SkyheimExtended", "SkyheimExtended", "1.0.4")]
     [BepInDependency("skyheim")]
     [BepInProcess("valheim.exe")]
 
@@ -55,6 +55,7 @@ namespace SkyheimExtended
             {
                 return;
             }
+
             harmony.PatchAll();
         }
     }
