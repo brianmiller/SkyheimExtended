@@ -16,15 +16,16 @@ namespace SkyheimExtended.Mana
         public static string skillFlavor;
         public static float skyheimExtended_maxMana;
         public static float skyheimExtended_manaRegen;
-        public static float skyheimExtended_currentMana;
-        public static float skyheimExtended_currentMana_test;
-        public static float skyheimExtended_manaDrain;
+        public static double skyheimExtended_currentMana1;
+        public static double skyheimExtended_currentMana2;
+        public static double skyheimExtended_manaDrain;
+        public static string foobar;
 
         public static void Postfix(ref float ____manaRegen, ref float ____maxMana, ref float ____currentMana)
         {
             //only run code when a player is active
             if ((Object)(object)Player.m_localPlayer != (Object)null)
-            {   
+            {
                 //only run code when a weapon is equipped. If no weapon is equipped, do not run.
                 if (!Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab)
                 {
@@ -91,20 +92,26 @@ namespace SkyheimExtended.Mana
                         ____manaRegen = 3f;
                         ____maxMana = 100f;
                     }
-
-
-                    //void ManaDrain(SkyheimItemData itemData)
-                    //{
-                    //skyheimExtended_manaDrain = (float)SkyheimItemData.FindObjectOfType<ManaUsed>();
-                    //}
-
-
-
-                    skyheimExtended_manaRegen = ____manaRegen;
-                    skyheimExtended_maxMana = ____maxMana;
-                    skyheimExtended_currentMana = ____currentMana;
-
                 }
+
+
+                SkyheimItemData component = currentWeapon.m_dropPrefab.GetComponent<SkyheimItemData>();
+                ____currentMana -= component.ManaDrain * Time.deltaTime;
+
+                double currentMana1 = (double)____currentMana;
+                ____currentMana = Mathf.Clamp(____currentMana + ____manaRegen * Time.deltaTime, 0.0f, ____maxMana);
+                double currentMana2 = (double)____currentMana;
+                foobar = string.Format("{0} / {1}", (object)(int)____currentMana, (object)(int)____maxMana);
+
+                //SkyheimItemData itemComponent = CommonUtils.GetItemComponent<SkyheimItemData>(currentWeapon);
+                //foobar = itemComponent.ManaUsed;
+
+                skyheimExtended_manaRegen = ____manaRegen;
+                skyheimExtended_maxMana = ____maxMana;
+                skyheimExtended_currentMana1 = currentMana1;
+                skyheimExtended_currentMana2 = currentMana2;
+                //skyheimExtended_manaDrain = 
+
             }
         }
     }

@@ -42,8 +42,10 @@ namespace SkyheimExtended.Debugger
                     Debug.Log("[SkyheimExtended]");
                     Debug.Log($"[SkyheimExtended] Max mana: {SkyheimMana_Patch.skyheimExtended_maxMana}");
                     Debug.Log($"[SkyheimExtended] Mana regen factor: {SkyheimMana_Patch.skyheimExtended_manaRegen}");
-                    Debug.Log($"[SkyheimExtended] Current mana: {SkyheimMana_Patch.skyheimExtended_currentMana}");
-                    Debug.Log($"[SkyheimExtended] Mana drain: {SkyheimMana_Patch.skyheimExtended_manaDrain}");
+                    Debug.Log($"[SkyheimExtended] Current mana1: {SkyheimMana_Patch.skyheimExtended_currentMana1}");
+                    Debug.Log($"[SkyheimExtended] Current mana2: {SkyheimMana_Patch.skyheimExtended_currentMana2}");
+                    //Debug.Log($"[SkyheimExtended] Mana drain: {SkyheimMana_Patch.skyheimExtended_manaDrain}");
+                    Debug.Log($"[SkyheimExtended] Foobar: {SkyheimMana_Patch.foobar}");
                     Debug.Log("");
                 }
             }
