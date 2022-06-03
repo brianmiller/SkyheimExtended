@@ -160,7 +160,7 @@ namespace SkyheimExtended.Mana
 
                 //scale it
                 regenScaled = (float)(skillLevel * regenScaleFactor + 3);
-                manaScaled = (float)(skillLevel * manaScaleFactor + 100);;
+                manaScaled = (float)(skillLevel * manaScaleFactor + 100);
 
                 //treat the travel rune differently
                 if (currentWeapon.m_dropPrefab.name == "rune_travel")
