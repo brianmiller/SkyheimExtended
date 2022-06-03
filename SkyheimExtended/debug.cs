@@ -30,13 +30,13 @@ namespace SkyheimExtended.Debugger
                 }
 
                 //if attack command is sent, send the following information to the console.
-                if (attack)
+                if (attack && Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab.name.StartsWith("rune_") == true)
                 {
                     Debug.Log("");
                     Debug.Log($"[SkyheimExtended] Current weapon: {Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab.name}");
                     Debug.Log($"[SkyheimExtended] Current weapon is a rune: {Player.m_localPlayer.GetCurrentWeapon().m_dropPrefab.name.StartsWith("rune_")}");
                     Debug.Log("[SkyheimExtended]");
-                    Debug.Log($"[SkyheimExtended] Scale with skill: {SkyheimExtended.scaleWithLevel.Value}");
+                    Debug.Log($"[SkyheimExtended] Scale with skill: {SkyheimExtended.scaleWithSkill.Value}");
                     Debug.Log($"[SkyheimExtended] Skill: {SkyheimMana_Patch.skillFlavor}");
                     Debug.Log($"[SkyheimExtended] Skill level: {SkyheimMana_Patch.skillLevel}");
                     Debug.Log("[SkyheimExtended]");
