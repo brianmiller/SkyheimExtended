@@ -14,16 +14,16 @@ Features:
     * If desired, scaling can be disabled (behaves like the original Skyheim) but you can still change these static values with SkyheimExtended
 	  * staticManaRegen
       * staticMaxMana
-      * static<RUNE>ManaDrain
+      * static[RUNE]ManaDrain
   * You can take a look at the latest SkyheimExtended default config here: https://github.com/brianmiller/SkyheimExtended/blob/master/posixone.SkyheimExtended.cfg  
 
 <br>
 
 By default, SkyheimExtended is in scaling mode. Default scaling factors are set to:
   * Mana Regen (regenScaleFactor): 1.41
-    * Formula is: skillLevel * scaling<RUNE>RegenFactor + 3
+    * Formula is: skillLevel * scaling[RUNE]RegenFactor + 3
   * Max Mana (manaScaleFactor): 0.06
-    * Formula is: skillLevel * scaling<RUNE>ManaFactor + 100
+    * Formula is: skillLevel * scaling[RUNE]ManaFactor + 100
 <br><br>
 
 If scaling is disabled (scaleWithLevel = false), then the "Static" values are used. SkyheimExtended sets these values to the following by default:
