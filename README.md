@@ -22,6 +22,7 @@ Features:
   * You can take a look at the latest SkyheimExtended default config here: https://github.com/brianmiller/SkyheimExtended/blob/master/posixone.SkyheimExtended.cfg  
 
 
+
 By default, SkyheimExtended is in scaling mode. Default scaling factors are set to:
   * Mana Regen (regenScaleFactor): 1.41
     * Formula is: skillLevel * scaling[RUNE]RegenFactor + 3
