@@ -2,10 +2,10 @@
 
 SkyheimExtended intercepts Skyheim's method calls and injects custom code replacing Skyheim's original code, when both (Skyheim+SkyeheimExtended) mods are used.
 
-Note:
-  * This mod does not replace Skyheim's original dll.  SkyeheimExtended can only be run alongside Skyheim
+## Note:
+  #### * This mod does not replace Skyheim's original dll.  SkyeheimExtended can only be run alongside Skyheim
 
-Features:
+## Features:
   * All runes can now be configured independently from each other.
     * Configure each rune to scale mana capacity and regen rate with the respective Skyheim magic skill level
 	* Configure static mana drain values for each rune. I.e., how much mana is used for each rune use
@@ -14,7 +14,7 @@ Features:
 
   * Statically assign Mana Regen and Max Mana values (instead of scaling)
     * If desired, scaling can be disabled (behaves like the original Skyheim) but you can still change these static values with SkyheimExtended
-	  * staticManaRegen
+      * staticManaRegen
       * staticMaxMana
       * static[RUNE]ManaDrain
 
@@ -23,7 +23,7 @@ Features:
 
 
 
-By default, SkyheimExtended is in scaling mode. Default scaling factors are set to:
+## SkyheimExtended Defaults and Calculations
   * Mana Regen (regenScaleFactor): 1.41
     * Formula is: skillLevel * scaling[RUNE]RegenFactor + 3
   * Max Mana (manaScaleFactor): 0.06
