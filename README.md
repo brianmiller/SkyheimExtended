@@ -9,14 +9,15 @@ Features:
   * All runes can now be configured independently from each other.
     * Configure each rune to scale mana capacity and regen rate with the respective Skyheim magic skill level
 	* Configure static mana drain values for each rune. I.e., how much mana is used for each rune use
-    * Note: the travel rune behaves differently.  The travel rune consumes mana when equipped, not when fired. The travel rune can also be configured.	
+    * Note: the travel rune behaves differently.  The travel rune consumes mana when equipped, not when fired. The travel rune can also be configured
+<br>
+
   * Statically assign Mana Regen and Max Mana values (instead of scaling)
-  <br>
     * If desired, scaling can be disabled (behaves like the original Skyheim) but you can still change these static values with SkyheimExtended
 	  * staticManaRegen
       * staticMaxMana
       * static[RUNE]ManaDrain
-  <br>
+<br>
   
   * You can take a look at the latest SkyheimExtended default config here: https://github.com/brianmiller/SkyheimExtended/blob/master/posixone.SkyheimExtended.cfg  
 <br>
